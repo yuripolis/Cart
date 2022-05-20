@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart creation</title>
+</head>
+<body>
+<h1>Cart creation</h1>
+<div class="container" th:each="item : ${listofitem}">
+    <p th:text="${item.getName()}"></p>
+</div>
+<form  class="" id="addEditForm" th:action="@{/createItem}"  method="POST">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <label>Title</label>
+            <div>
+                <input type="text" class="form-control" style="width:100%"    name="name"  placeholder="Enter item name here"/>
+            </div>
+            <div>
+                <input type="text" class="form-control" style="width:100%"   name="price" placeholder="Enter item price"/>
+            </div>
+            <div>
+                <input type="text" class="form-control" style="width:100%"   name="link" placeholder="Paste item link"/>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <input type="submit" name="save" value="save"/>
+            <input type="submit" name="finish" value="finish/" th:formaction="@{/finish}">
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>
